@@ -5,7 +5,11 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
+    "check:repo": "node scripts/validate-repository.js",
+    "check:syntax": "find src scripts -type f -name '*.js' -print0 | xargs -0 -r -n1 node --check",
+    "check:format": "prettier --check \"src/**/*.js\" \"scripts/**/*.js\" package.json",
+    "check": "npm run check:syntax && npm run check:repo && npm run check:format"
   },
   "keywords": [
     "javascript",
