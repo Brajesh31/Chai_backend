@@ -15,6 +15,7 @@ The following items were confirmed by source inspection. They have not been fixe
 | KI-09 | Logout DB update is not awaited | Refresh token may persist after response | High | Await update and test revocation |
 | KI-10 | No centralized error middleware | Inconsistent error output | Medium | Add safe error normalization |
 | KI-11 | Entry point loads ./env while dev script preloads .env | Startup configuration mismatch | Medium | Standardize dotenv behavior |
-| KI-12 | No tests or lint scripts in package.json | Regressions are not automated | High | Add test and CI setup |
+| KI-12 | No application unit or integration tests | Endpoint regressions are not automatically tested | High | Add test runner and disposable MongoDB tests |
+| KI-13 | No production start command, health endpoint, or deployment config | Operations are not defined | High | Add a platform-specific release plan before deployment |
 
 Fix code issues with focused pull requests and regression coverage. Do not mark a row resolved until a code change and verification support that status.
