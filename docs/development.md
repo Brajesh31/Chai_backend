@@ -1,37 +1,34 @@
-# Development
+# Development Guide
 
-## Scripts and tools
+## Repository type
+This is a Node.js ECMAScript-module backend using Express 5, Mongoose, JWT, bcrypt, Multer, and Cloudinary. The original package scripts expose `npm run dev` only.
 
-`package.json` currently defines only:
+## Setup
+1. Install Node.js and npm.
+2. Run `npm ci` to install from the committed lockfile.
+3. Copy `.env.example` to `.env` and fill in local-only values.
+4. Start MongoDB and verify the connection URI.
+5. Run `npm run dev`.
 
-```sh
-npm run dev
-```
+The database connection appends `/videotube` to `MONGODB_URI`. The entry point explicitly calls dotenv with `./env`, while the dev script preloads the default `.env`; preserve this known mismatch in mind.
 
-This starts Nodemon and runs `src/index.js` with dotenv preloaded. Prettier is installed and a repository configuration is present. There are currently no `test`, `lint`, `build`, or production `start` scripts.
+## Source conventions
+- Keep ESM imports explicit, including `.js` extensions for relative modules.
+- Keep route declarations in `src/routes`.
+- Keep request handling and orchestration in controllers.
+- Keep persistence behavior in Mongoose models.
+- Keep cross-cutting logic in middleware.
+- Keep reusable low-level helpers in `src/utils`.
+- Update API, architecture, and database docs whenever behavior changes.
 
-## Working on a change
+## Current feature boundary
+Only user routes are mounted. Video and Subscription models exist, but no corresponding API controllers or routers were found in the tracked tree. Do not document unimplemented features as available.
 
-1. Create a focused branch from the current default branch.
-2. Install dependencies with `npm install` and create a private `.env` from `.env.example`.
-3. Start MongoDB and any external service needed by the feature.
-4. Make the smallest cohesive change, following the existing ES module style.
-5. Run the development server and exercise the affected route with representative valid and invalid input. Do not claim a route was verified unless you ran it.
-6. Review the diff for secrets, uploads, logs, and unrelated formatting.
-7. Update the relevant docs and describe validation in the pull request.
+## Current code risks
+Review [troubleshooting](troubleshooting.md) and [security](security.md) before extending auth and uploads. Several current defects affect normal flows.
 
-## Project conventions
+## Adding tests and lint
+There are no original test/lint scripts. Add a test runner, configuration, scripts, and synthetic tests together in a focused change. Do not add a command in documentation until it exists in package configuration.
 
-- Routes are grouped under `src/routes/` and mounted below `/api/v1/users`.
-- Controllers are in `src/controllers/`; schemas are in `src/models/`.
-- Reusable request middleware belongs in `src/middlewares/`; shared helpers belong in `src/utils/`.
-- Keep response and error behavior explicit. If you add a global error handler, document its status and JSON format.
-- Validate untrusted input and constrain uploaded files before forwarding them to external services.
-
-## Data and credentials
-
-Use a disposable local database for development. Never commit `.env`, tokens, database dumps, real user information, or uploaded media. Rotate credentials if they are accidentally exposed. Use test accounts and assets you have permission to use.
-
-## Current limitations
-
-There is no automated test suite. Some existing controller and schema paths have known defects; see [architecture.md](architecture.md). Documentation should distinguish current behavior from planned work.
+## Pull request hygiene
+Use the PR template, describe behavior changes, include safe test evidence, update the docs, and avoid committing credentials, user records, or temporary media.
