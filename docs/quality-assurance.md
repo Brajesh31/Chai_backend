@@ -1,6 +1,7 @@
 # Quality Assurance
 
 ## Current baseline
+The repository includes syntax, formatting, documentation-link, and structure checks. It still has no application unit or integration test runner and no automated MongoDB/Cloudinary test environment.
 The original package defines a Nodemon development script only. It has no test, lint, build, or deployment-validation scripts.
 
 ## Repository hygiene
