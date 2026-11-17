@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant C as Client
+    participant E as Express App
+    participant R as User Router
+    participant M as Auth or Multer
+    participant H as Controller
+    participant D as MongoDB
+    participant S as Response
+    C->>E: HTTP request
+    E->>R: Route matching
+    R->>M: Run route middleware when configured
+    M-->>R: Attach user or parsed upload
+    R->>H: Invoke controller
+    H->>D: Query or update model
+    D-->>H: Result
+    H->>S: ApiResponse or error
+    S-->>C: HTTP response
