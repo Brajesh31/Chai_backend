@@ -1,0 +1,17 @@
+flowchart TD
+    Client[HTTP Client] --> Server[src/index.js]
+    Server --> DBConnect[MongoDB connection]
+    Server --> App[src/app.js]
+    App --> Cors[CORS]
+    App --> Parser[JSON / URL encoded]
+    App --> Cookies[cookie-parser]
+    App --> UserRouter[/api/v1/users]
+    UserRouter --> Auth[JWT middleware]
+    UserRouter --> Upload[Multer middleware]
+    UserRouter --> Controller[User controllers]
+    Controller --> UserModel[User model]
+    Controller --> Aggregation[MongoDB aggregations]
+    UserModel --> Mongo[(MongoDB: videotube)]
+    Controller --> Cloudinary[Cloudinary uploads]
+    classDef external fill:#ffedd5,stroke:#c2410c,color:#7c2d12
+    class Mongo,Cloudinary,Client external
