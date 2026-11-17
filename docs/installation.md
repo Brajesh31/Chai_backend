@@ -43,7 +43,7 @@ The default port is 8000. The development script uses Nodemon and preloads doten
 
 ## Verify the setup
 
-The app should log a successful MongoDB connection and start listening. There are no automated test or health-check scripts at present. `npm run dev` is the only script declared in `package.json`. A successful start does not establish that every route works; consult [api.md](api.md) and [troubleshooting.md](troubleshooting.md).
+The app should log a successful MongoDB connection and start listening. `npm run dev` starts the local development server. The repository also provides `npm run check` for syntax, formatting, and documentation validation; this does not start MongoDB or test API behavior. A successful check does not establish that every route works; consult [api.md](api.md) and [troubleshooting.md](troubleshooting.md).
 
 ## Common setup failures
 
