@@ -1,0 +1,15 @@
+flowchart TD
+    A[Login request] --> B[Find user by email or username]
+    B --> C[Compare password with bcrypt]
+    C -->|Invalid| D[401 response]
+    C -->|Valid| E[Generate access JWT]
+    E --> F[Generate refresh JWT]
+    F --> G[Store refresh token on user]
+    G --> H[Set secure HttpOnly cookies]
+    H --> I[Current code also returns tokens in JSON]
+    J[Protected request] --> K[Read cookie or Bearer header]
+    K --> L[Verify access JWT]
+    L --> M[Load user and attach req.user]
+    N[Refresh request] --> O[Current guard incorrectly rejects present token]
+    classDef issue fill:#fee2e2,stroke:#b91c1c,color:#7f1d1d
+    class I,O issue
