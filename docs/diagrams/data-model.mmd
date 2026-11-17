@@ -1,0 +1,32 @@
+erDiagram
+    USER ||--o{ VIDEO : owns
+    USER ||--o{ SUBSCRIPTION : subscribes
+    USER ||--o{ SUBSCRIPTION : receives
+    USER }o--o{ VIDEO : watchHistory
+
+    USER {
+      ObjectId _id
+      string username
+      string email
+      string fullName
+      string avatar
+      string coverImage
+      string password
+      string refreshToken
+    }
+    VIDEO {
+      ObjectId _id
+      string videoFile
+      string thumbnail
+      string title
+      string description
+      number duration
+      number views
+      boolean isPublished
+      ObjectId owner
+    }
+    SUBSCRIPTION {
+      ObjectId _id
+      ObjectId subscriber
+      ObjectId channel
+    }
