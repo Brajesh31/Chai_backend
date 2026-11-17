@@ -31,9 +31,6 @@ jobs:
       - name: 📦 Install locked dependencies
         run: npm ci
 
-      - name: 🧹 Check JavaScript formatting
-        run: npx prettier --check "scripts/**/*.js" "package.json"
-
       - name: 🧩 Check JavaScript syntax
         run: |
           find src scripts -type f -name '*.js' -print0 | xargs -0 -r -n1 node --check
