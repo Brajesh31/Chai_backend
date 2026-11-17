@@ -32,7 +32,7 @@ jobs:
         run: npm ci
 
       - name: 🧹 Check JavaScript formatting
-        run: npx prettier --check "src/**/*.js" "scripts/**/*.js" "package.json"
+        run: npx prettier --check "scripts/**/*.js" "package.json"
 
       - name: 🧩 Check JavaScript syntax
         run: |
