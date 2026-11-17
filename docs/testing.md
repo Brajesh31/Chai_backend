@@ -24,7 +24,18 @@ Use synthetic users, generated passwords, fake tokens, small fixture files, and 
 - Missing Authorization header can cause an unsafe `replace` call.
 - Cloudinary failure cleanup can throw after the temporary file has already been removed.
 
-## Suggested verification commands
+## Current repository checks
+
+```bash
+npm run check
+npm run check:syntax
+npm run check:repo
+npm run check:format
+```
+
+These commands inspect JavaScript syntax, Prettier formatting for the configured source paths, required repository files, and relative Markdown links. They do not start MongoDB or test route behavior.
+
+## Application testing goals
 The project currently exposes only `npm run dev`. Add and document test and lint commands only when their toolchains and configuration have actually been committed. For now, perform syntax checks with Node for the source files and manual disposable-environment integration checks, recording the commands actually executed.
 
 ## CI boundary
