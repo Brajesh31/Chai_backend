@@ -1,0 +1,11 @@
+flowchart TD
+    A[Backend code] --> B{Known defects fixed?}
+    B -->|No| X[Do not expose publicly]
+    B -->|Yes| C[Auth and upload tests]
+    C --> D[Secrets and CORS review]
+    D --> E[DB backup and restore test]
+    E --> F[Logging and health checks]
+    F --> G[CI and rollback verified]
+    G --> H[Deployment review]
+    classDef stop fill:#fee2e2,stroke:#b91c1c,color:#7f1d1d
+    class X stop
