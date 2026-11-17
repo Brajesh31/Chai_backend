@@ -1,6 +1,6 @@
 # 🧭 Operations Runbooks
 
-These runbooks describe procedures for maintaining the current Node.js / Express / MongoDB backend. They do not imply that production deployment is configured.
+These procedures support the current Node.js / Express / MongoDB backend. They do not imply that production deployment is configured.
 
 - [Local development startup](local-development.md)
 - [MongoDB connection incident](mongodb-connection.md)
