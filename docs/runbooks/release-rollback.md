@@ -3,20 +3,20 @@
 ## Before release
 - Review the complete diff and dependency lockfile.
 - Run lint, tests, and startup checks.
-- Verify auth, upload, CORS, and database behavior.
+- Verify authentication, upload, CORS, and database behavior.
 - Confirm secrets are injected outside source control.
 - Back up data and confirm a restore procedure.
 - Document the release commit and rollback target.
 
 ## Deploy
-Follow the chosen hosting platform's approved deployment process. This repository does not currently define a production start command or deployment manifest.
+Follow the chosen hosting platform's approved procedure. This repository does not currently define a production start command or deployment manifest.
 
 ## Verify
-Check process startup, MongoDB connectivity, expected API status codes, cookie behavior, upload handling, and logs without exposing secrets.
+Check process startup, MongoDB connectivity, expected API behavior, cookie configuration, upload handling, and logs without exposing secrets.
 
 ## Roll back
-1. Stop or shift traffic away from the faulty release.
-2. Deploy the last known-good application revision.
+1. Shift traffic away from the faulty release.
+2. Deploy the last known-good revision.
 3. Restore data only when a tested migration requires it.
 4. Verify application/database compatibility.
 5. Record the issue and add regression tests.
