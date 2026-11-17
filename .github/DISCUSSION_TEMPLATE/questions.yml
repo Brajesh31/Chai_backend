@@ -1,0 +1,18 @@
+title: "❓ Backend question"
+body:
+  - type: markdown
+    attributes:
+      value: "Never include API keys, MongoDB URIs, cookies, JWTs, passwords, or real user data."
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Sanitized context
+      description: Include Node version, route path, commit, and sanitized error message.
+    validations:
+      required: false
