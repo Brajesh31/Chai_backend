@@ -34,11 +34,13 @@ Chai Backend is a JavaScript ES-module API starter for a video-sharing applicati
 
 ## 🚦 Project status
 
-This is an educational, in-progress backend rather than a production-ready service. The audit found implementation defects in refresh-token handling, account updates, channel lookup, and the video schema's `Schema` reference. There are no test, lint, or build scripts in `package.json`. Read [docs/architecture.md](docs/architecture.md) and [docs/troubleshooting.md](docs/troubleshooting.md) before extending the API.
+This is an educational, in-progress backend rather than a production-ready service. The audit found implementation defects in refresh-token handling, account updates, channel lookup, and the video schema's `Schema` reference. Repository syntax, formatting, and documentation checks have now been added, but there are still no application unit or integration tests. Read [docs/architecture.md](docs/architecture.md), [docs/security.md](docs/security.md), and [docs/troubleshooting.md](docs/troubleshooting.md) before extending the API.
 
 ## 🏗️ Architecture
 
-![System architecture](docs/diagrams/system-architecture.mmd)
+![System architecture diagram](docs/assets/system-architecture.svg)
+
+Editable source: [Mermaid system architecture](docs/diagrams/system-architecture.mmd).
 
 The request flow is:
 
@@ -127,7 +129,16 @@ The authentication middleware reads an access token from a cookie or an Authoriz
 
 ## 🧪 Development and quality checks
 
-The original package exposes only `npm run dev`. Automated tests, lint, and production build commands have not yet been added. Use a disposable MongoDB database and synthetic accounts for manual checks. The project roadmap prioritizes automated tests and security hardening before deployment.
+The original package exposed only `npm run dev`. Repository checks have now been added:
+
+```bash
+npm run check
+npm run check:syntax
+npm run check:repo
+npm run check:format
+```
+
+These commands check syntax, Prettier formatting, required documentation files, and relative Markdown links. They do not connect to MongoDB, invoke Cloudinary, or test endpoint behavior. Use a disposable MongoDB database and synthetic accounts for manual integration checks. Application unit and integration tests remain future work.
 
 ## ⚠️ Known implementation and security gaps
 
