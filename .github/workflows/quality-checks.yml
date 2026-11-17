@@ -1,0 +1,60 @@
+name: 🔎 Quality Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  repository-quality:
+    name: 🧪 Backend repository checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🟢 Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: 📦 Install locked dependencies
+        run: npm ci
+
+      - name: 🧹 Check JavaScript formatting
+        run: npx prettier --check "src/**/*.js" "scripts/**/*.js" "package.json"
+
+      - name: 🧩 Check JavaScript syntax
+        run: |
+          find src scripts -type f -name '*.js' -print0 | xargs -0 -r -n1 node --check
+
+      - name: 🔗 Validate documentation and repository structure
+        run: node scripts/validate-repository.js
+
+      - name: 🧾 Parse YAML configuration
+        run: |
+          node --input-type=module -e "
+            import fs from 'node:fs';
+            import yaml from 'yaml';
+            for (const file of [
+              '.github/workflows/quality-checks.yml',
+              '.github/dependabot.yml',
+              '.github/ISSUE_TEMPLATE/config.yml'
+            ]) {
+              yaml.parse(fs.readFileSync(file, 'utf8'));
+              console.log('Valid YAML:', file);
+            }
+          "
+
+# No application tests exist yet. This workflow does not connect to MongoDB,
+# call Cloudinary, start the API, or claim that endpoints are integration-tested.
