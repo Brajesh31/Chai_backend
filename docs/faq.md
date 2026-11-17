@@ -1,33 +1,28 @@
-# FAQ
+# Frequently Asked Questions
 
-## What does this project do?
+## What does this backend do?
+The current mounted router provides user registration, login/logout, token refresh, password change, current-user lookup, account/profile-image update, channel profile lookup, and watch history. Some of these routes have known implementation defects.
 
-It is an educational Express and MongoDB backend for a video-sharing application. Current HTTP routes focus on user registration, authentication, account/profile changes, channel summary, and watch history.
+## Is this a complete YouTube clone?
+No. User, Video, and Subscription models exist, but the inspected repository only mounts user routes. Video publishing, listing, streaming, and subscription management endpoints are not present.
 
-## Are video and subscription APIs available?
+## Which database is used?
+MongoDB through Mongoose. The connection helper appends the fixed database name `videotube` to `MONGODB_URI`.
 
-No. Model files exist, but there are no corresponding routes or controllers in the current implementation.
+## Does it need Cloudinary?
+Cloudinary is used by the upload helper for avatar and cover image uploads. Local startup may work without testing those flows, but uploads need valid credentials.
 
-## Which database name should I use?
+## Why is the port 8000?
+The entry point uses `process.env.PORT || 8000`.
 
-The connection code appends the fixed database name `videotube` to `MONGODB_URI`.
+## Which environment file is loaded?
+The dev script preloads dotenv's default `.env`, and the entry point also calls dotenv with `./env`. This inconsistency should be resolved in a future code fix.
 
-## Why does refresh-token fail?
+## Are there tests?
+The original package metadata has no test or lint scripts. See [testing](testing.md) for the recommended verification strategy.
 
-The current controller rejects requests when a refresh token is present. This is a known implementation defect documented in [api.md](api.md).
+## Is it production ready?
+No. Auth, refresh-token handling, account update, channel lookup, upload validation, error handling, and operational controls have known gaps. Review [security](security.md) and [deployment](deployment.md).
 
-## Why do profile update routes behave incorrectly?
-
-The account update controller references an undefined `json` function, and the channel profile controller has an inverted aggregation-result check. See [troubleshooting.md](troubleshooting.md).
-
-## Where should I put credentials?
-
-In a local, untracked `.env` file or a deployment secret manager. Start from `.env.example`, which contains blank secret fields. Never commit credentials or share them in logs/issues.
-
-## Can I deploy this as-is?
-
-The repository has no production start script or deployment manifests and includes known correctness and upload-security gaps. Review [deployment.md](deployment.md) and fix those issues before exposing it to real users.
-
-## How do I contribute?
-
-Read [CONTRIBUTING.md](../CONTRIBUTING.md), open an issue for substantial work, and describe the validation you actually performed.
+## Where should I report a vulnerability?
+Use the private reporting process in the root [SECURITY.md](../SECURITY.md). Do not post tokens or exploit details publicly.
