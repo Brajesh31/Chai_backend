@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="340" viewBox="0 0 1280 340" role="img" aria-labelledby="title desc">
+<title id="title">Chai Backend architecture</title>
+<desc id="desc">A Node and Express API routes requests through middleware and controllers to MongoDB and Cloudinary.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111827"/><stop offset="1" stop-color="#064e3b"/></linearGradient><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fbbf24"/><stop offset="1" stop-color="#fb923c"/></linearGradient></defs>
+<rect width="1280" height="340" rx="26" fill="url(#bg)"/>
+<circle cx="1135" cy="55" r="175" fill="#fff" opacity=".04"/><circle cx="1200" cy="285" r="130" fill="#fff" opacity=".035"/>
+<text x="70" y="72" fill="#fde68a" font-family="Arial,sans-serif" font-size="19" font-weight="700" letter-spacing="4">NODE.JS · EXPRESS 5 · MONGODB</text>
+<text x="70" y="140" fill="#fff" font-family="Arial,sans-serif" font-size="52" font-weight="700">☕ Chai Backend</text>
+<text x="72" y="183" fill="#d1fae5" font-family="Arial,sans-serif" font-size="22">A modular API foundation for a video-sharing platform</text>
+<g font-family="Arial,sans-serif" text-anchor="middle">
+<g stroke="#fbbf24" stroke-width="2"><rect x="70" y="230" width="210" height="70" rx="13" fill="#1f2937"/><rect x="365" y="230" width="210" height="70" rx="13" fill="#1f2937"/><rect x="660" y="230" width="210" height="70" rx="13" fill="#1f2937"/><rect x="955" y="230" width="255" height="70" rx="13" fill="#1f2937"/></g>
+<g font-size="20" font-weight="700" fill="#fff"><text x="175" y="272">Express API</text><text x="470" y="272">Middleware</text><text x="765" y="272">Controllers</text><text x="1082" y="272">MongoDB / Cloudinary</text></g>
+<g stroke="url(#accent)" stroke-width="4" fill="none"><path d="M280 265h75l-12-9m12 9-12 9"/><path d="M575 265h75l-12-9m12 9-12 9"/><path d="M870 265h75l-12-9m12 9-12 9"/></g>
+</g></svg>
