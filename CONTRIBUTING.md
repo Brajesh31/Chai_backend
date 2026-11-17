@@ -18,7 +18,7 @@ Use a supported Node.js LTS release, install dependencies with `npm install`, an
 - Create a focused branch from the current default branch.
 - Keep unrelated formatting or generated files out of the change.
 - Follow the existing JavaScript ES module conventions and Prettier configuration.
-- Validate the affected behavior manually and describe the steps and results in the pull request. The repository currently defines no automated test, lint, or build scripts; do not claim those checks passed unless scripts are added and actually run.
+- Validate the affected behavior manually and describe the steps and results in the pull request. The repository now defines syntax, formatting, and documentation checks via `npm run check`. It still has no application unit or integration test runner. State exactly which checks you ran and do not claim endpoint behavior was tested unless you exercised it.
 - Update API, configuration, database, or deployment documentation where behavior changes.
 - Review the final diff for accidental secrets, temporary uploads, and unrelated changes.
 
