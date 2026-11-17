@@ -9,7 +9,7 @@ All diagram sources are editable Mermaid files.
 | [Authentication flow](authentication-flow.mmd) | Current token design and defects |
 | [Upload flow](upload-flow.mmd) | Multer temporary file and Cloudinary upload |
 | [Data model](data-model.mmd) | User, Video, Subscription relations |
-| [CI workflow](ci-workflow.mmd) | Intended automated quality checks |
+| [CI workflow](ci-workflow.mmd) | Automated quality checks |
 | [Security trust boundaries](security-trust-boundaries.mmd) | Client, API, database, storage, logs, secrets |
 | [Error handling](error-handling.mmd) | Current async/error path and missing central middleware |
 | [Deployment readiness](deployment-readiness.mmd) | Required checks before public deployment |
