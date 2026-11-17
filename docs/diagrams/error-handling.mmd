@@ -1,0 +1,11 @@
+flowchart TD
+    A[HTTP request] --> B[Express middleware]
+    B --> C[Router and controller]
+    C --> D{Operation succeeds?}
+    D -->|Yes| E[ApiResponse]
+    D -->|No| F[ApiError or rejected promise]
+    F --> G[asyncHandler]
+    G --> H[Current app has no centralized error middleware]
+    H --> I[Add safe error normalization and redaction]
+    classDef risk fill:#fee2e2,stroke:#b91c1c,color:#7f1d1d
+    class H risk
