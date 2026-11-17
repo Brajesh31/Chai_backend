@@ -1,0 +1,10 @@
+flowchart LR
+    Browser[Browser / API client] --> Express[Express process]
+    Express --> Mongo[(MongoDB)]
+    Express --> Cloudinary[Cloudinary]
+    Express --> Temp[public/temp]
+    Secrets[Environment secrets] --> Express
+    Browser -. cookie / bearer token .-> Express
+    Express -. logs must redact secrets .-> Logs[Operational logs]
+    classDef sensitive fill:#fee2e2,stroke:#b91c1c,color:#7f1d1d
+    class Mongo,Cloudinary,Temp,Secrets,Logs sensitive
