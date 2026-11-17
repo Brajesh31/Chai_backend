@@ -21,6 +21,12 @@ This repository is a Node.js / Express 5 backend using MongoDB, Mongoose, JWT, b
 - [Project structure](directory-structure.md)
 - [Repository validation script](../scripts/README.md)
 - [Test strategy](testing.md)
+- Commands: `npm run check`, `npm run check:syntax`, `npm run check:repo`, and `npm run check:format`
+
+
+- [Project structure](directory-structure.md)
+- [Repository validation script](../scripts/README.md)
+- [Test strategy](testing.md)
 
 ## Important current limitations
 - Refresh-token handling has a guard defect.
