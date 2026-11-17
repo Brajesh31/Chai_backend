@@ -8,9 +8,16 @@ const required = [
   "SECURITY.md", "SUPPORT.md", "GOVERNANCE.md", "CHANGELOG.md",
   "docs/README.md", "docs/architecture.md", "docs/api.md",
   "docs/database.md", "docs/security.md", "docs/authentication.md",
-  "docs/diagrams/README.md", "docs/runbooks/README.md",
-  "docs/templates/README.md", ".github/pull_request_template.md",
-  ".github/workflows/quality-checks.yml", "src/index.js", "src/app.js"
+  "docs/configuration.md", "docs/data-dictionary.md", "docs/api-error-catalog.md",
+  "docs/observability.md", "docs/performance.md", "docs/backup-recovery.md",
+  "docs/diagrams/README.md", "docs/diagrams/system-architecture.mmd",
+  "docs/runbooks/README.md", "docs/runbooks/secret-exposure.md",
+  "docs/templates/README.md", "docs/templates/endpoint-specification.md",
+  "docs/known-issues.md", "docs/release-process.md", "docs/support-matrix.md",
+  "docs/assets/system-architecture.svg", "scripts/README.md",
+  ".github/pull_request_template.md", ".github/workflows/quality-checks.yml",
+  ".github/dependabot.yml", ".github/ISSUE_TEMPLATE/bug_report.md",
+  "GOVERNANCE.md", "ACKNOWLEDGMENTS.md", "src/index.js", "src/app.js"
 ];
 
 const missing = required.filter((file) => !fs.existsSync(path.join(root, file)));
