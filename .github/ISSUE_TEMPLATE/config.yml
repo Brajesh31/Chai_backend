@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔐 Report a vulnerability privately
+    url: https://github.com/Brajesh31/Chai_backend/security
+    about: Use private vulnerability reporting where available. Do not post tokens or exploit details publicly.
+  - name: 📚 Read the documentation
+    url: https://github.com/Brajesh31/Chai_backend/tree/main/docs
+    about: Review API, setup, architecture, database, and troubleshooting guides.
