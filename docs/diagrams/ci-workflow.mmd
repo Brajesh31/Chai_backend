@@ -1,0 +1,10 @@
+flowchart TD
+    A[Push or pull request] --> B[Checkout]
+    B --> C[Install dependencies]
+    C --> D[Lint]
+    D --> E[Unit and repository tests]
+    E --> F[Markdown and configuration validation]
+    F --> G[Node syntax checks]
+    G --> H[CI result]
+    classDef check fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    class D,E,F,G check
