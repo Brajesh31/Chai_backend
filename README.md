@@ -40,6 +40,8 @@ This is an educational, in-progress backend rather than a production-ready servi
 
 ![System architecture diagram](docs/assets/system-architecture.svg)
 
+![Request and data flow](docs/diagrams/request-lifecycle.mmd)
+
 Editable source: [Mermaid system architecture](docs/diagrams/system-architecture.mmd).
 
 The request flow is:
