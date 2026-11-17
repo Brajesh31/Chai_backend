@@ -1,0 +1,11 @@
+flowchart TD
+    A[Multipart request] --> B[Multer writes to public/temp]
+    B --> C[Controller receives local file path]
+    C --> D[Cloudinary upload]
+    D -->|Success| E[Store returned media URL]
+    D -->|Failure| F[Return upload failure]
+    E --> G[Attempt local file cleanup]
+    F --> H[Current cleanup can throw if file already absent]
+    B --> I[Original filename used; no explicit size/type filter]
+    classDef issue fill:#fee2e2,stroke:#b91c1c,color:#7f1d1d
+    class H,I issue
