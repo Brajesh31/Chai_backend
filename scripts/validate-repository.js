@@ -68,14 +68,23 @@ for (const file of markdownFiles) {
   const content = fs.readFileSync(file, "utf8");
   for (const match of content.matchAll(linkPattern)) {
     const target = match[1].trim().split(/[\s#]/)[0].replace(/^<|>$/g, "");
-    if (!target || /^(https?:|mailto:|#)/.test(target)) continue;
+    if (!target || /^(https?:|mailto:|#)/.test(target)) {
+      continue;
+    }
     const resolved = path.resolve(path.dirname(file), decodeURIComponent(target));
-    if (!fs.existsSync(resolved)) broken.push(`${path.relative(root, file)} -> ${target}`);
+    if (!fs.existsSync(resolved)) {
+      broken.push(`${path.relative(root, file)} -> ${target}`);
+    }
   }
 }
 if (broken.length) {
-  console.error("Broken relative Markdown links:", broken.join("\n"));
+  console.error(
+    "Broken relative Markdown links:",
+    broken.join("\n"),
+  );
   process.exit(1);
 }
 
-console.log(`Repository validation passed: ${required.length} required paths and ${markdownFiles.length} Markdown files.`);
+console.log(
+  `Repository validation passed: ${required.length} required paths and ${markdownFiles.length} Markdown files.`,
+);
