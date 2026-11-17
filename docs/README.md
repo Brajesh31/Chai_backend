@@ -7,7 +7,7 @@ This repository is a Node.js / Express 5 backend using MongoDB, Mongoose, JWT, b
 | Topic | Guide |
 |---|---|
 | Getting started | [Installation](installation.md), [Configuration](configuration.md), [Development](development.md) |
-| System design | [Architecture](architecture.md), [Directory structure](directory-structure.md), [Diagrams](diagrams/README.md) |
+| System design | [Architecture](architecture.md), [Directory structure](directory-structure.md), [Diagrams](diagrams/README.md), [SVG architecture visual](assets/system-architecture.svg) |
 | API | [API reference](api.md), [Error catalog](api-error-catalog.md), [Authentication](authentication.md) |
 | Persistence | [Database](database.md), [Data dictionary](data-dictionary.md) |
 | Security and operations | [Security](security.md), [Observability](observability.md), [Backup and recovery](backup-recovery.md) |
