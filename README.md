@@ -126,6 +126,11 @@ The authentication middleware reads an access token from a cookie or an Authoriz
 - [Directory structure](docs/directory-structure.md)
 - [Runbooks](docs/runbooks/README.md)
 - [Templates](docs/templates/README.md)
+- [Repository structure](docs/directory-structure.md)
+- [Known issue register](docs/known-issues.md)
+- [Support matrix](docs/support-matrix.md)
+- [Release process](docs/release-process.md)
+- [Governance](GOVERNANCE.md) and [acknowledgments](ACKNOWLEDGMENTS.md)
 
 ## 🧪 Development and quality checks
 
